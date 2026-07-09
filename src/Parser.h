@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <string_view>
 #include <vector>
 #include <unordered_map>
 #include "Quote.h"
@@ -7,11 +7,11 @@
 class Parser {
 public:
     Parser();
-    bool parseLine(const std::string& line, Quote& outQuote);
+    bool parseLine(std::string_view line, Quote& outQuote);
     void setPriceScaling(double scale);
 
 private:
-    std::unordered_map<std::string, std::string> symbolLookup;
+    std::unordered_map<std::string_view, std::string_view> symbolLookup;
     long long lastTimestamp;
     long long lastSequenceId;
     double priceScale;
